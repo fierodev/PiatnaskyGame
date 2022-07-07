@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .mainDiv{
+            width: 405px;
+            height: 450px;
+            border:2px solid black;
+            margin:0 auto;
+        }
+        .title{
+            text-align: center;
+            font-size: 30px;
+            margin:0 auto;
+        }
+        .table{
+            display:flex;
+            justify-content: space-between;
+            flex-wrap:wrap;
+            width:400px;
+            height: 400px;
+            margin:0 auto;
+            background-color: rgb(126, 249, 208);
+        }
+        .table div{
+            display:flex;      
+            width: 95px;
+            height: 95px;
+            border:2px solid black;
+            font-size: 30px;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="mainDiv">
+        <div class="title">П'ятнашки</div>
+        <div class="table"></div>
+    </div>
+    
+    <script>
+        const table = document.querySelector('.table');
+        for(var i=0; i<=15; i++){
+            let numbers = document.createElement("div");
+            if(i==0){
+                numbers.innerHTML = "";
+                numbers.classList.add("emptyBlock");
+                numbers.addEventListener("click", getValue);
+            }else{
+                numbers.innerHTML = i;
+                numbers.classList.add("block" + i);
+                numbers.addEventListener("click", getValue);
+            }
+            table.appendChild(numbers);
+        };
+
+    function getValue(e){
+        let x = document.querySelector(`.${e.target.className}`);
+        let y = document.querySelector(".emptyBlock");
+        y.style.backgroundColor = "rgb(126, 249, 208)"; 
+        e.currentTarget.style.backgroundColor = "red"; 
+        let currentValue = x.innerHTML;  
+        x.innerHTML = "";
+        y.innerHTML= currentValue;
+        y.className = `${e.target.className}`;
+        x.className = "emptyBlock";
+        
+    }
+    </script>
+</body>
+</html>
