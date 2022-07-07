@@ -8,9 +8,10 @@
     <style>
         .mainDiv{
             width: 405px;
-            height: 450px;
+            height: 470px;
             border:2px solid black;
             margin:0 auto;
+             background-color:  rgb(40, 206, 150);
         }
         .title{
             text-align: center;
@@ -24,7 +25,8 @@
             width:400px;
             height: 400px;
             margin:0 auto;
-            background-color: rgb(126, 249, 208);
+            background-color:  rgb(126, 249, 208);
+           
         }
         .table div{
             display:flex;      
@@ -35,12 +37,18 @@
             justify-content: center;
             align-items: center;
         }
+        .titleBottom{
+            text-align: center;
+            font-size: 30px;
+            margin:0 auto;
+        }
     </style>
 </head>
 <body>
     <div class="mainDiv">
         <div class="title">П'ятнашки</div>
         <div class="table"></div>
+        <div class="titleBottom">Ну що, починаєм?</div>
     </div>
     
     <script>
@@ -79,8 +87,13 @@
         y.innerHTML= currentValue;
         y.className = `${e.target.className}`;
         x.className = "emptyBlock";
+        let bot = document.querySelector(".titleBottom");
+        bot.innerHTML = "Класна гра";
+        bot.style.backgroundColor = "rgb(78, 247, 66)";
        }else{
-        alert("Неправильний хід");
+        let botErr = document.querySelector(".titleBottom");
+        botErr.innerHTML = "Неможливий хід";
+        botErr.style.backgroundColor = " rgb(243, 7, 7)";
        }
     }
         
