@@ -59,7 +59,17 @@
             table.appendChild(numbers);
         };
 
+      
     function getValue(e){
+  let index = 0;
+  let curIndex = 0;
+  var currentIndex = Array.prototype.slice.call(document.querySelector('.table').children),
+            uLRef = document.getElementsByClassName(`${e.target.className}`)[0];
+            curIndex = currentIndex.indexOf(uLRef);
+  var nodes = Array.prototype.slice.call(document.querySelector('.table').children),
+            liRef = document.getElementsByClassName('emptyBlock')[0];
+            index = nodes.indexOf(liRef);
+       if( curIndex === index + 1 || index-1 === curIndex || index+4 === curIndex || index-4 === curIndex){
         let x = document.querySelector(`.${e.target.className}`);
         let y = document.querySelector(".emptyBlock");
         y.style.backgroundColor = "rgb(126, 249, 208)"; 
@@ -69,8 +79,13 @@
         y.innerHTML= currentValue;
         y.className = `${e.target.className}`;
         x.className = "emptyBlock";
-        
+       }else{
+        alert("Неправильний хід");
+       }
     }
+        
     </script>
 </body>
 </html>
+
+<!-- https://github.com/fierodev/PiatnaskyGame.git -->
